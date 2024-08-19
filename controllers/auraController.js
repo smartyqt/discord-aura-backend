@@ -17,6 +17,8 @@ const getUserInfo = async (req, res) => {
     );
 
     const userData = response.data;
+    userData.banner = `https://cdn.discordapp.com/banners/${userID}/${userData.banner}.gif`;
+    userData.avatar = `https://cdn.discordapp.com/avatars/${userID}/${userData.avatar}.gif`;
     const aura = await calculateAura(userData);
 
     const newLookup = new Lookup({
